@@ -1,6 +1,12 @@
+#BogoSort "sorts" a list by swaping two random indices
+#until the list is in ascending order
+
 import random
 import time
 
+
+#User can input how many numbers they want to be sorted
+#I don't recommend going above 10
 def inputListAmount():
     n = raw_input ("How many numbers do you want in the list? ")
     while (not n.isdigit()) or (int(n)< 1):
@@ -9,6 +15,9 @@ def inputListAmount():
     
     return n
 
+
+#Makes a list with size of the input
+#For example: Inputting 4 would generate [0, 1, 2, 3]
 def generateList(size):
     list = []
     for i in range(0, size):
@@ -16,11 +25,16 @@ def generateList(size):
     
     return list
 
+
+#Shuffles list since it was created in ascended order
 def listRandomizer(list):
     random.shuffle(list)
     
     return list
 
+
+#Sorting algorithm. Two random indices are chosen and its respective
+#values are swapped.
 def sort(list, n):
     counter = 0
     while sorted(list) != list:
@@ -34,6 +48,8 @@ def sort(list, n):
     
     return counter
 
+
+#User can choose to run the program again
 def repeat():
     choice = raw_input ("Would you like to run BogoSort again? ")
     choice = choice.lower()
@@ -46,6 +62,7 @@ def repeat():
     else:
         print " "
         return False
+
 
 def main():
     size = inputListAmount()
@@ -62,6 +79,7 @@ def main():
     
     if repeat():
         main()
+    
     
 main()
     
